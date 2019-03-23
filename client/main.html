@@ -1,0 +1,79 @@
+<head>
+  <title>sharedDocument</title>
+</head>
+
+<body>
+  <div>
+    {{>navbar}}
+  </div>
+
+  <div class="container css-margin-top">
+    <div>
+      {{>metaData}}
+    </div>
+
+    <div class = "row h-100 p-3">
+     <div class = "col-md-12">
+       <br><br>
+      <!-- <h3>The editor!</h3> -->
+       {{> editor}}
+     </div> <!-- END OF COLUMN CLASS 'the first column that takes 6 grid in medium screens' -->
+
+     <!--
+     <div class = "col-md-6">
+       <h3>Browser view!</h3>
+       {{> viewer}}
+     </div> --> <!-- END OF COLUMN CLASS 'the second column that takes 6 grid in medium screens' -->
+
+   </div> <!-- END OF ROW CLASS-->
+
+  </div> <!--END OF CONTAINER DEV COMPONANT -->
+</body>
+
+<template name="navbar">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Home</a>
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="#" class="js-add-doc" id="css-add-doc">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            new document
+          </a>
+        </li>
+
+        <!-- dropdown of documents related to tht user -->
+        <li class = "dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Documents
+            <span class="caret">
+            </span>
+          </a>
+          <ul class="dropdown-menu">
+            {{#each documents}}
+            <li><a href="#" class="js-load-doc">{{title}}</a></li>
+            {{/each}}
+          </ul>
+        </li>
+      </ul>
+      <span class="navbar-text navbar-right">
+      {{>loginButtons}}
+    </span>
+    </div>
+  </nav>
+</template> <!-- END OF NAV COMPONENT-->
+
+  <template name="metaData">
+    {{#with document}}
+    <span class="h3" style="color: blue"> {{title}}</span>
+   {{/with}}
+</template> <!-- END OF METADATA COMPONENT-->
+
+<template name="editor">
+    {{>sharejsCM docid=doc_id onRender=config id="editor"}}
+</template> <!-- END OF 'editor' TEMPELATE -->
+
+<template name="viewer">
+  <iframe id= 'viewer_content'>
+  </iframe>
+</template> <!-- END OF 'viewer' TEMPELATE -->

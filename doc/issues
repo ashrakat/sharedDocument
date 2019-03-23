@@ -1,0 +1,4 @@
+Issues I've met:
+  1- Meteor methods not defined
+    solution:
+      - import folder that holds your methods "meteor methods" in both clients & server files ".js" so both cn red them

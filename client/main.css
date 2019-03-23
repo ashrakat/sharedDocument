@@ -1,0 +1,15 @@
+html, body{
+  height: 100%;
+}
+body {
+  padding: 10px;
+  font-family: sans-serif;
+}
+.css-margin-top{
+  margin-top: 50px;
+}
+
+.navbar-right{
+  align: right;
+  margin-right: 100px;
+}
